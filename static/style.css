@@ -1,0 +1,149 @@
+/* style.css - diseño simple, limpio y accesible */
+:root{
+    --bg: #f5f7fb;
+    --card: #ffffff;
+    --accent: #1f6feb;
+    --muted: #6b7280;
+    --text: #0f172a;
+    --radius: 12px;
+    --max-width: 1100px;
+}
+
+*{box-sizing:border-box}
+html,body{
+    margin:0;
+    padding:0;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing:antialiased;
+}
+
+.container{
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.site-header{
+    background: linear-gradient(90deg, #0ea5e9, #0369a1);
+    color: white;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+.site-header.small{ padding: 14px 0; }
+.site-header h1{ margin:0; font-size:1.6rem; text-align:center; }
+.site-header .sub{ text-align:center; margin-top:6px; color: rgba(255,255,255,0.85); }
+
+/* Lotes grid */
+.grid-lotes{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+    align-items: stretch;
+}
+
+.card-lote{
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: 0 6px 18px rgba(20,30,50,0.08);
+    overflow: hidden;
+    display:flex;
+    flex-direction:column;
+    height:100%;
+}
+
+.lote-img{
+    width:100%;
+    height:160px;
+    object-fit:cover;
+    display:block;
+}
+
+.card-body{
+    padding: 16px;
+    flex:1;
+    display:flex;
+    flex-direction:column;
+}
+
+.card-body h2{
+    margin:0 0 8px 0;
+    font-size:1.05rem;
+}
+
+.desc{
+    color: var(--muted);
+    font-size:0.95rem;
+    margin-bottom: 10px;
+    flex:1;
+}
+
+.precio{
+    font-weight:700;
+    margin-bottom: 12px;
+}
+
+/* Buttons */
+.btn, .btn-secondary{
+    display:inline-block;
+    text-decoration:none;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    text-align:center;
+}
+
+.btn{
+    background: var(--accent);
+    color: white;
+}
+.btn:hover{ opacity:0.95; }
+
+.btn-secondary{
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid rgba(31,111,235,0.12);
+}
+
+/* Form */
+.form-container{ max-width:640px; margin: 0 auto 40px auto; }
+.form{
+    background: var(--card);
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(20,30,50,0.06);
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+.form label{ font-size:0.9rem; color:var(--muted); }
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="tel"]{
+    padding: 10px;
+    border-radius:8px;
+    border:1px solid #e6e9ef;
+    font-size:1rem;
+    outline-color: var(--accent);
+}
+
+/* Footer */
+.site-footer{ text-align:center; padding:16px 0; color:var(--muted); font-size:0.9rem; }
+
+/* Misc */
+.error{
+    background:#ffecec;
+    color:#b00020;
+    padding:10px;
+    border-radius:8px;
+    margin-bottom:8px;
+}
+
+/* Responsive tweaks */
+@media (max-width:600px){
+    .lote-img{ height:140px; }
+    .site-header h1{ font-size:1.2rem; }
+}

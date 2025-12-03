@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacto - Solicitar Información</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="site-header small">
+        <div class="container">
+            <h1>Solicitar más información</h1>
+        </div>
+    </header>
+
+    <main class="container form-container">
+        {% if error %}
+            <div class="error" role="alert">{{ error }}</div>
+        {% endif %}
+
+        <form action="{{ url_for('contacto') }}" method="POST" class="form">
+            <label for="nombre">Nombre y Apellido *</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="correo">Correo electrónico *</label>
+            <input type="email" id="correo" name="correo" required>
+
+            <label for="celular">Celular *</label>
+            <input type="tel" id="celular" name="celular" required>
+
+            <label for="horario">Horario para contactar (ej: 09:00-12:00) *</label>
+            <input type="text" id="horario" name="horario" placeholder="Horario preferido" required>
+
+            <input type="hidden" name="tipo_ganado" value="{{ tipo_ganado }}">
+
+            <div class="actions">
+                <a class="btn-secondary" href="{{ url_for('dashboard') }}">Volver al Dashboard</a>
+                <button class="btn" type="submit">Enviar</button>
+            </div>
+        </form>
+    </main>
+
+</body>
+</html>

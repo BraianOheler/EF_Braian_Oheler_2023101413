@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Venta de Ganado</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1>Exposición de Lotes - Ganado Bovino</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="grid-lotes" aria-label="Lotes disponibles">
+            {% for lote in lotes %}
+            <article class="card-lote" role="article">
+                <img src="{{ url_for('static', filename='image/' + lote.imagen) }}" alt="{{ lote.tipo }}" class="lote-img">
+                <div class="card-body">
+                    <h2>Lote {{ lote.lote }} — {{ lote.tipo }}</h2>
+                    <p class="desc">{{ lote.descripcion }}</p>
+                     <p class="cantidad">
+                        <strong>Cantidad:</strong> {{ lote.cantidad }}
+                    </p>
+                    <p class="precio">{{ lote.precio }}</p>
+                    <a class="btn" href="{{ url_for('contacto') }}?tipo={{ lote.tipo }}">Pedir más info</a>
+                </div>
+            </article>
+            {% endfor %}
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Contacto: completa el formulario para solicitar información técnica y comercial.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gracias</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container thanks">
+        <h1>Gracias</h1>
+        <p>Su solicitud ha sido registrada. Nos contactaremos en el horario indicado.</p>
+        <p><a class="btn" href="{{ url_for('dashboard') }}">Volver al Dashboard</a></p>
+    </main>
+</body>
+</html>
